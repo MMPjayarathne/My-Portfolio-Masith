@@ -36,7 +36,6 @@ export default function Education() {
               Education
             </h2>
             <ul className="space-y-4">
-              {/* Degree Information */}
               <li className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center">
                   <span className="text-primary">1</span>
@@ -48,9 +47,8 @@ export default function Education() {
                 </div>
               </li>
 
-              {/* GPA */}
               <li className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full border-2 border-secondary flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center">
                   <span className="text-primary">2</span>
                 </div>
                 <div>
@@ -59,9 +57,8 @@ export default function Education() {
                 </div>
               </li>
 
-              {/* Class */}
               <li className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full border-2 border-accent flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center">
                   <span className="text-primary">3</span>
                 </div>
                 <div>
@@ -70,7 +67,6 @@ export default function Education() {
                 </div>
               </li>
 
-              {/* Specializations */}
               <li className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center">
                   <span className="text-primary">4</span>
