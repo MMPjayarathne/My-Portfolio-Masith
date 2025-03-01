@@ -38,11 +38,7 @@ export default function Volunteer() {
       className="min-h-screen flex items-center justify-center bg-background py-16"
     >
       <div className="container mx-auto px-4 flex flex-col md:flex-row">
-<<<<<<< HEAD
 
-=======
-        {/* Right Section with Enlarged Logo */}
->>>>>>> 68e04d592ea1c4c169e130ea8777c5d8019e6a32
         <div className="hidden md:flex flex-1 justify-center items-center">
           <div className="w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden">
             <img
@@ -70,31 +66,17 @@ export default function Volunteer() {
               >
                 <div
                   onClick={() => handleVolunteerExperienceChange(index)}
-<<<<<<< HEAD
                   className="flex p-6 cursor-pointer flex-col md:flex-row" 
                 >
 
-=======
-                  className="flex p-6 cursor-pointer flex-col md:flex-row" // Adjusted for mobile stacking
-                >
-                  {/* Logo Section */}
->>>>>>> 68e04d592ea1c4c169e130ea8777c5d8019e6a32
                   <div className="w-16 h-16 md:w-24 md:h-24 mr-6 flex items-center justify-center rounded-full overflow-hidden mb-4 md:mb-0">
                     <img
                       src={experience.organizationLogo}
                       alt="Organization Logo"
-<<<<<<< HEAD
                       className="h-full w-full object-contain"
                     />
                   </div>
 
-=======
-                      className="h-full w-full object-contain" // Fix zoom issue with object-contain
-                    />
-                  </div>
-
-                  {/* Content Section */}
->>>>>>> 68e04d592ea1c4c169e130ea8777c5d8019e6a32
                   <div className="flex-1">
                     <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
                       <h2 className="text-xl font-semibold text-primary">
@@ -106,18 +88,10 @@ export default function Volunteer() {
                       </div>
                     </div>
 
-<<<<<<< HEAD
-=======
-                    {/* Organization Name */}
->>>>>>> 68e04d592ea1c4c169e130ea8777c5d8019e6a32
                     <div className="mt-2 text-sm text-gray-600">
                       {experience.organizationName}
                     </div>
 
-<<<<<<< HEAD
-=======
-                    {/* Description */}
->>>>>>> 68e04d592ea1c4c169e130ea8777c5d8019e6a32
                     <div className="mt-4 text-gray-700">
                       <p>{experience.description}</p>
                     </div>
