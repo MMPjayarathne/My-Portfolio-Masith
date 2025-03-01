@@ -1,4 +1,4 @@
-"use client"; // Required for client-side interactivity
+"use client"; 
 
 import React from "react";
 import Image from "next/image";
@@ -13,26 +13,24 @@ export default function AboutMe() {
         <div className="flex-1 flex justify-center md:justify-start">
           <div className="relative w-full max-w-md">
             <Image
-              src= {myImg} // Update the path to your image
+              src= {myImg}
               alt="Profile Picture"
               width={400}
               height={400}
               className="rounded-lg "
-              priority // Ensures the image is loaded first
+              priority 
             />
           </div>
         </div>
 
-        {/* About Me Content */}
         <div className="flex-1 text-center md:text-left">
           <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6 border-b-4 border-secondary pb-2">
             About Me
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-8">
-            My academic journey has equipped me with a strong foundation in Software Engineering principles, which I continually apply to real-world scenarios through internships and personal projects. I&lsquom excited to connect with like-minded individuals and explore opportunities to make a positive impact on the world through technology. Thank you for visiting my portfolio!
+            My academic journey has equipped me with a strong foundation in Software Engineering principles, which I continually apply to real-world scenarios through internships and personal projects. I&apos;om excited to connect with like-minded individuals and explore opportunities to make a positive impact on the world through technology. Thank you for visiting my portfolio!
           </p>
 
-          {/* Personal Info Card */}
           <Card className="p-6 shadow-lg">
             <h2 className="text-2xl font-semibold text-primary mb-4">
               Some Personal Info
