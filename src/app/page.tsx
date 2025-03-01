@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import Intro from "../components/Intro";
-import AboutMe from "@/components/Aboutme";
+import AboutMe from "@/components/Education";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import ContactMe from "@/components/Contactme";

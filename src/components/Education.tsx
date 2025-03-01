@@ -5,9 +5,9 @@ import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import myImg from "../../public/images/research.png";
 
-export default function AboutMe() {
+export default function Education() {
   return (
-    <section id="aboutme" className="min-h-screen flex items-center justify-center bg-background py-16">
+    <section id="eduction" className="min-h-screen flex items-center justify-center bg-background py-16">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
        
         <div className="flex-1 flex justify-center md:justify-start">

@@ -39,10 +39,10 @@ export default function Navbar() {
           </Button>
           <Button
             variant="ghost"
-            onClick={() => scrollToSection("aboutme")}
+            onClick={() => scrollToSection("eduction")}
             className="text-lg hover:bg-accent"
           >
-            About Me
+            Eduction
           </Button>
           <Button
             variant="ghost"
@@ -102,10 +102,10 @@ export default function Navbar() {
           </Button>
           <Button
             variant="ghost"
-            onClick={() => scrollToSection("aboutme")}
+            onClick={() => scrollToSection("eduction")}
             className="w-full text-left"
           >
-            About Me
+            Eduction
           </Button>
           <Button
             variant="ghost"
