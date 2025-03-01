@@ -15,7 +15,7 @@ export default function Intro() {
             Welcome!
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-8">
-            I am a final year Software Engineering undergraduate driven by a deep passion for technology and innovation.
+            I am <strong> Masith Pramuditha Jayarathna </strong>. A Software Engineer driven by a deep passion for technology and innovation.
             With boundless enthusiasm, I embrace challenges and approach each endeavor with wonder and determination.
             Collaboration is my forte, and I thrive in team environments, valuing diverse perspectives.
           </p>
