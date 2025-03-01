@@ -23,14 +23,12 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        {/* Logo */}
         <div className="flex items-center">
           <span className="text-3xl font-bold text-primary font-cursive">
             Masith
           </span>
         </div>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-6">
           <Button
             variant="ghost"
@@ -76,20 +74,18 @@ export default function Navbar() {
           </Button>
         </div>
 
-        {/* Mobile Hamburger Menu */}
         <div className="md:hidden">
           <Button
             variant="ghost"
             size="icon"
             onClick={toggleMenu}
-            className="text-primary"
+            className="text-primary z-60" 
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </Button>
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       <div
         className={cn(
           "md:hidden bg-white shadow-lg absolute top-16 left-0 right-0 transition-all duration-300 ease-in-out",
