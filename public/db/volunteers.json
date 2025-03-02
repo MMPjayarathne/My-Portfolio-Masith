@@ -1,0 +1,20 @@
+{
+    "volunteers": [
+      {
+        "id": 1,
+        "title": "President",
+        "subtitle": "Oct 2024 - Present",
+        "description": "Leading the Software Engineering Students' Association (SESA) by motivating the executive team, organizing events like workshops and hackathons, building industry relationships, and engaging with students for feedback. Working closely with faculty for strategic planning to align initiatives with academic and professional goals.",
+        "organizationName": "Software Engineering Students' Association, University of Kelaniya, Sri Lanka",
+        "organizationLogo": "/volunteer/sesa.jpg"
+      },
+      {
+        "id": 2,
+        "title": "Junior Treasurer",
+        "subtitle": "Mar 2019 - Nov 2019",
+        "description": "Organized fundraising events and managed event logistics, including handling budgets and financial reports.",
+        "organizationName": "IEEE Computer Chapter, University of Kelaniya, Sri Lanka",
+        "organizationLogo": "/volunteer/ieee.png"
+      }
+    ]
+  }

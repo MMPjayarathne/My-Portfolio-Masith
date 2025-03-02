@@ -1,53 +1,61 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { FaCalendarAlt } from "react-icons/fa";
 
-const volunteerExperiences = [
-  {
-    id: 1,
-    title: "President",
-    subtitle: "Oct 2024 - Present",
-    description: 
-      "Leading the Software Engineering Students' Association (SESA) by motivating the executive team, organizing events like workshops and hackathons, building industry relationships, and engaging with students for feedback. Working closely with faculty for strategic planning to align initiatives with academic and professional goals.",
-    organizationName: "Software Engineering Students' Association, University of Kelaniya, Sri Lanka",
-    organizationLogo: "/volunteer/sesa.jpg", 
-  },
-  {
-    id: 2,
-    title: "Junior Treasurer",
-    subtitle: "Mar 2019 - Nov 2019",
-    description:
-      "Organized fundraising events and managed event logistics, including handling budgets and financial reports.",
-    organizationName: "IEEE Computer Chapter, University of Kelaniya, Sri Lanka",
-    organizationLogo: "/volunteer/ieee.png", 
-  },
-];
+type VolunteerExperiences = {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  organizationName: string;
+  organizationLogo: string;
+};
+
 
 export default function Volunteer() {
   const [activeVolunteerExperience, setActiveVolunteerExperience] = useState<number>(0);
-
+  const [volunteerExperiences, setVolunteerExperiences] = useState<VolunteerExperiences[]>([]);
+  
+    useEffect(() => {
+      const fetchExperiences = async () => {
+        try {
+          const response = await fetch("/db/volunteers.json");
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          const data = await response.json();
+          setVolunteerExperiences(data.volunteers);
+        } catch (error) {
+          console.error("Fetch error: ", error); 
+        }
+      };
+  
+      fetchExperiences();
+    }, []);
   const handleVolunteerExperienceChange = (index: number) => {
     setActiveVolunteerExperience(index);
   };
 
   return (
     <section
-      id="volunteer-experience"
+      id="volunteer"
       className="min-h-screen flex items-center justify-center bg-background py-16"
     >
       <div className="container mx-auto px-4 flex flex-col md:flex-row">
 
+      {volunteerExperiences.length > 0 && (
         <div className="hidden md:flex flex-1 justify-center items-center">
           <div className="w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden">
             <img
               src={volunteerExperiences[activeVolunteerExperience].organizationLogo}
               alt="Selected Organization Logo"
-              className="h-full w-full object-contain" // Fix zoom issue with object-contain
+              className="h-full w-full object-contain"
             />
           </div>
         </div>
+      )}
 
         <div className="flex-1 md:max-w-2xl">
           <h1 className="text-4xl md:text-5xl font-bold text-primary mb-8 border-b-4 border-secondary pb-2">
@@ -88,11 +96,11 @@ export default function Volunteer() {
                       </div>
                     </div>
 
-                    <div className="mt-2 text-sm text-gray-600">
+                    <div className="mt-2 text-sm text-muted-foreground">
                       {experience.organizationName}
                     </div>
 
-                    <div className="mt-4 text-gray-700">
+                    <div className="mt-4 text-muted-foreground">
                       <p>{experience.description}</p>
                     </div>
                   </div>
