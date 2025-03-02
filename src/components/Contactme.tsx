@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 
 import React from "react";
 import { Button } from "@/components/ui/button";
@@ -47,39 +47,51 @@ export default function ContactMe() {
             </div>
           </div>
 
-          <div className="flex flex-col items-center justify-center gap-6 bg-secondary p-6 rounded-lg shadow-lg">
+          <div className="flex flex-col items-center justify-center gap-6 bg-secondary dark:bg-gray-900 p-6 rounded-lg shadow-lg">
             <a
-              href="#"
-              className="w-12 h-12 flex items-center justify-center bg-white rounded-full text-linkedin hover:bg-linkedin hover:text-white transition-colors"
+              href="https://www.linkedin.com/in/masith-pramuditha-b4649b220/"
+              className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-blue-400 text-white flex items-center justify-center hover:scale-105 transition-transform"
               aria-label="LinkedIn"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FaLinkedin size={24} />
             </a>
             <a
-              href="#"
-              className="w-12 h-12 flex items-center justify-center bg-white rounded-full text-github hover:bg-github hover:text-white transition-colors"
+              href="https://github.com/MMPjayarathne"
+              className="w-12 h-12 rounded-full bg-gradient-to-r from-gray-800 to-gray-600 text-white flex items-center justify-center hover:scale-105 transition-transform"
               aria-label="GitHub"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FaGithub size={24} />
             </a>
+
             <a
-              href="#"
-              className="w-12 h-12 flex items-center justify-center bg-white rounded-full text-medium hover:bg-medium hover:text-white transition-colors"
+              href="https://medium.com/@pramudithajayarathna"
+              className="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-600 to-yellow-400 text-white flex items-center justify-center hover:scale-105 transition-transform"
               aria-label="Medium"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FaMedium size={24} />
             </a>
+
             <a
-              href="#"
-              className="w-12 h-12 flex items-center justify-center bg-white rounded-full text-facebook hover:bg-facebook hover:text-white transition-colors"
+              href="https://www.facebook.com/masith.pamuditha"
+              className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-700 to-blue-500 text-white flex items-center justify-center hover:scale-105 transition-transform"
               aria-label="Facebook"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FaFacebook size={24} />
             </a>
             <a
               href="#"
-              className="w-12 h-12 flex items-center justify-center bg-white rounded-full text-instagram hover:bg-instagram hover:text-white transition-colors"
+              className="w-12 h-12 rounded-full bg-gradient-to-r from-pink-600 to-purple-600 text-white flex items-center justify-center hover:scale-105 transition-transform"
               aria-label="Instagram"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FaInstagram size={24} />
             </a>
