@@ -1,12 +1,34 @@
-"use client"; 
+"use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react"; 
-import { cn } from "@/lib/utils"; 
+import { Menu, X, ChevronDown, Moon, Sun } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isExperienceOpen, setIsExperienceOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Toggle dark mode based on class on the <html> element
+  useEffect(() => {
+    const savedMode = localStorage.getItem("darkMode");
+    if (savedMode === "true") {
+      document.documentElement.classList.add("dark");
+      setIsDarkMode(true);
+    } else {
+      document.documentElement.classList.remove("dark");
+      setIsDarkMode(false);
+    }
+  }, []);
+
+  // Toggle dark mode on and off
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    const newMode = !isDarkMode;
+    document.documentElement.classList.toggle("dark", newMode);
+    localStorage.setItem("darkMode", newMode.toString());
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -21,7 +43,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 shadow-md">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <div className="flex items-center">
           <span className="text-3xl font-bold text-primary font-cursive">
@@ -32,7 +54,7 @@ export default function Navbar() {
         <div className="hidden md:flex space-x-6">
           <Button
             variant="ghost"
-            onClick={() => scrollToSection("main")}
+            onClick={() => scrollToSection("intro")}
             className="text-lg hover:bg-accent"
           >
             Home
@@ -42,8 +64,36 @@ export default function Navbar() {
             onClick={() => scrollToSection("eduction")}
             className="text-lg hover:bg-accent"
           >
-            Eduction
+            Education
           </Button>
+
+          <div className="relative">
+            <Button
+              variant="ghost"
+              onClick={() => setIsExperienceOpen(!isExperienceOpen)}
+              className="text-lg hover:bg-accent flex items-center"
+            >
+              Experience <ChevronDown size={18} />
+            </Button>
+            {isExperienceOpen && (
+              <div className="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-900 shadow-lg rounded-md">
+                <Button
+                  variant="ghost"
+                  onClick={() => scrollToSection("industry")}
+                  className="w-full text-left"
+                >
+                  Industry
+                </Button>
+                <Button
+                  variant="ghost"
+                  onClick={() => scrollToSection("volunteer")}
+                  className="w-full text-left"
+                >
+                  Volunteer
+                </Button>
+              </div>
+            )}
+          </div>
           <Button
             variant="ghost"
             onClick={() => scrollToSection("myskills")}
@@ -72,23 +122,42 @@ export default function Navbar() {
           >
             Blogs
           </Button>
+          <Button
+            variant="ghost"
+            onClick={toggleDarkMode}
+            className="p-2 rounded-full focus:outline-none"
+          >
+            {isDarkMode ? <Sun size={24} /> : <Moon size={24} />}
+          </Button>
         </div>
 
-        <div className="md:hidden">
+        {/* Dark Mode Toggle Button and Hamburger Menu Button for Mobile */}
+        <div className="md:hidden flex items-center space-x-4">
+          {/* Dark Mode Toggle */}
+          <Button
+            variant="ghost"
+            onClick={toggleDarkMode}
+            className="p-2 rounded-full focus:outline-none"
+          >
+            {isDarkMode ? <Sun size={24} /> : <Moon size={24} />}
+          </Button>
+
+          {/* Hamburger Menu */}
           <Button
             variant="ghost"
             size="icon"
             onClick={toggleMenu}
-            className="text-primary z-60" 
+            className="text-primary z-60"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </Button>
         </div>
       </div>
 
+      {/* Mobile Menu */}
       <div
         className={cn(
-          "md:hidden bg-white shadow-lg absolute top-16 left-0 right-0 transition-all duration-300 ease-in-out",
+          "md:hidden bg-white dark:bg-gray-900 shadow-lg absolute top-16 left-0 right-0 transition-all duration-300 ease-in-out",
           isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         )}
       >
@@ -105,8 +174,35 @@ export default function Navbar() {
             onClick={() => scrollToSection("eduction")}
             className="w-full text-left"
           >
-            Eduction
+            Education
           </Button>
+          <div className="relative">
+            <Button
+              variant="ghost"
+              onClick={() => setIsExperienceOpen(!isExperienceOpen)}
+              className="w-full text-left flex items-center"
+            >
+              Experience <ChevronDown size={18} />
+            </Button>
+            {isExperienceOpen && (
+              <div className="absolute left-0 mt-2 w-full bg-white dark:bg-gray-900 shadow-lg rounded-md">
+                <Button
+                  variant="ghost"
+                  onClick={() => scrollToSection("industry")}
+                  className="w-full text-left"
+                >
+                  Industry
+                </Button>
+                <Button
+                  variant="ghost"
+                  onClick={() => scrollToSection("volunteer")}
+                  className="w-full text-left"
+                >
+                  Volunteer
+                </Button>
+              </div>
+            )}
+          </div>
           <Button
             variant="ghost"
             onClick={() => scrollToSection("myskills")}
