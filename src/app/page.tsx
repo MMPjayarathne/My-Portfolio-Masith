@@ -4,7 +4,7 @@ import AboutMe from "@/components/Education";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import ContactMe from "@/components/Contactme";
-import Blogs from "@/components/Blogs";
+import  Blogs from "@/components/Blogs";
 import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
 import Volunteer from "@/components/Volunteer";

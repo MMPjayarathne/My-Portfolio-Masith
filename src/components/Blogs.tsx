@@ -1,116 +1,110 @@
 "use client";
 
-import React, { useState } from "react";
-import { Card } from "@/components/ui/card";
-import { FaPlay } from "react-icons/fa";
+import * as React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
-const blogs = [
+// Sample blog data
+const blogPosts = [
   {
     id: 1,
-    title: "Bunker",
-    subtitle: "Balthazar",
-    image:
-      "https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80",
-    time: "4.05",
+    title: "How to Build a React App",
+    description: "A beginner's guide to building a simple React application.",
+    link: "#",
+    imageUrl: "/images/blog1.jpg",
   },
   {
     id: 2,
-    title: "Words Remain",
-    subtitle: "Moderator",
-    image:
-      "https://images.unsplash.com/photo-1559386484-97dfc0e15539?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80",
-    time: "4.05",
+    title: "Understanding JavaScript Closures",
+    description: "A deep dive into closures and how they work in JavaScript.",
+    link: "#",
+    imageUrl: "/images/blog2.jpg",
   },
   {
     id: 3,
-    title: "Falling Out",
-    subtitle: "Otzeki",
-    image:
-      "https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60",
-    time: "4.05",
+    title: "Introduction to CSS Grid",
+    description: "Learn the basics of CSS Grid layout and create complex designs.",
+    link: "#",
+    imageUrl: "/images/blog3.jpg",
+  },
+  {
+    id: 4,
+    title: "Mastering Node.js and Express",
+    description: "Build scalable server-side applications with Node.js and Express.",
+    link: "#",
+    imageUrl: "/images/blog4.jpg",
+  },
+  {
+    id: 5,
+    title: "React vs Vue: A Detailed Comparison",
+    description: "A comparison between React and Vue for front-end development.",
+    link: "#",
+    imageUrl: "/images/blog5.jpg",
+  },
+  {
+    id: 6,
+    title: "The Ultimate Guide to TypeScript",
+    description: "Get started with TypeScript and understand its core features.",
+    link: "#",
+    imageUrl: "/images/blog6.jpg",
   },
 ];
 
-export default function Blogs() {
-  const [activeBlog, setActiveBlog] = useState(0);
-
-  const handleBlogChange = (index: number) => {
-    setActiveBlog(index);
-  };
-
+export default function Blog() {
   return (
-    <section
-      id="blogs"
-      className="min-h-screen flex items-center justify-center bg-background py-16"
-    >
-      <div className="container mx-auto px-4">
- 
-        <h1 className="text-4xl md:text-5xl font-bold text-primary mb-8 border-b-4 border-secondary pb-2">
-          Blogs
-        </h1>
+    <section id="blogs" className="py-16 bg-background">
+      <div className="container mx-auto px-4 text-center">
+        <h2 className="text-3xl font-bold text-primary mb-8">Latest Blog Articles</h2>
 
-        <div className="flex flex-col items-center">
-          <div className="relative w-full max-w-3xl h-96">
-            {blogs.map((blog, index) => (
-              <Card
-                key={blog.id}
-                className={`absolute w-full h-full transition-transform duration-500 ease-in-out ${
-                  index === activeBlog
-                    ? "translate-x-0 scale-100 opacity-100 z-10"
-                    : index < activeBlog
-                    ? "-translate-x-1/2 scale-90 opacity-50 z-0"
-                    : "translate-x-1/2 scale-90 opacity-50 z-0"
-                } md:block ${index !== activeBlog ? "hidden md:block" : ""} ${
-                  index === activeBlog ? "block" : "hidden sm:block"
-                }`}
-              >
-                <img
-                  src={blog.image}
-                  alt={blog.title}
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </Card>
-            ))}
-          </div>
-
-          <div className="flex gap-4 mt-8">
-            {blogs.map((blog, index) => (
-              <button
-                key={blog.id}
-                onClick={() => handleBlogChange(index)}
-                className={`w-3 h-3 rounded-full ${
-                  index === activeBlog ? "bg-primary" : "bg-muted"
-                }`}
-                aria-label={`Go to blog ${index + 1}`}
-              />
-            ))}
-          </div>
-
-          <div className="mt-8 w-full max-w-3xl">
-            <Card className="p-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 flex items-center justify-center bg-primary rounded-full text-white">
-                  <FaPlay size={24} />
+        {/* Blog Carousel */}
+        <Carousel opts={{ align: "start" }} className="w-full max-w-4xl mx-auto">
+          <CarouselContent>
+            {blogPosts.map((post) => (
+              <CarouselItem key={post.id} className="md:basis-1/2 lg:basis-1/3">
+                <div className="p-4">
+                  <Card className="shadow-lg rounded-lg">
+                    <div className="relative">
+                      <Image
+                        src={post.imageUrl}
+                        alt={post.title}
+                        width={400}
+                        height={250}
+                        className="w-full h-auto rounded-t-lg object-cover"
+                      />
+                    </div>
+                    <CardContent className="flex flex-col items-center p-4">
+                      <h3 className="text-xl font-semibold text-primary mb-2">{post.title}</h3>
+                      <p className="text-sm text-muted-foreground mb-4">{post.description}</p>
+                      <Button variant="outline" onClick={() => window.location.href = post.link}>
+                        Read More
+                      </Button>
+                    </CardContent>
+                  </Card>
                 </div>
-                <div className="flex-1">
-                  <h2 className="text-xl font-semibold text-primary">
-                    {blogs[activeBlog].title}
-                  </h2>
-                  <div className="flex justify-between text-muted-foreground">
-                    <span>{blogs[activeBlog].subtitle}</span>
-                    <span>{blogs[activeBlog].time}</span>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-4 h-1 w-full bg-muted rounded-full">
-                <div
-                  className="h-full bg-primary rounded-full"
-                  style={{ width: "60%" }}
-                />
-              </div>
-            </Card>
-          </div>
-        </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+
+          <CarouselPrevious
+            className="absolute top-1/2 left-0 z-10 p-2 bg-white dark:bg-gray-800 text-black dark:text-white shadow-md rounded-full"
+          >
+            Prev
+          </CarouselPrevious>
+          <CarouselNext
+            className="absolute top-1/2 right-0 z-10 p-2 bg-white dark:bg-gray-800 text-black dark:text-white shadow-md rounded-full"
+          >
+            Next
+          </CarouselNext>
+
+        </Carousel>
       </div>
     </section>
   );
