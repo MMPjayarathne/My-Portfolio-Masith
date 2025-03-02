@@ -5,14 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 import Image from "next/image";
 import myImage from "../../public/images/myimg-removebg.png";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion"; 
 
 export default function Intro() {
   return (
     <section id="intro" className="min-h-screen flex items-center justify-center bg-background">
       <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row items-center gap-8 relative">
-
-        {/* Animated Text Section */}
         <motion.div
           className="flex-1 text-center md:text-left pt-8 md:pt-12"
           initial={{ opacity: 0, x: -50 }}
@@ -45,7 +43,6 @@ export default function Intro() {
           </motion.div>
         </motion.div>
 
-        {/* Animated Image Section */}
         <motion.div
           className="flex-1 flex justify-center md:justify-end relative"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -59,7 +56,7 @@ export default function Intro() {
               width={400}
               height={400}
               className="rounded-lg relative z-10"
-              priority // Ensures the image is loaded first
+              priority
             />
           </div>
         </motion.div>
