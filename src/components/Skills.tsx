@@ -60,7 +60,7 @@ export default function Skills() {
               <TabsTrigger
                 key={category}
                 value={category}
-                className="text-sm md:text-base data-[state=active]:bg-primary data-[state=active]:text-white"
+                className="text-sm md:text-base data-[state=active]:bg-primary data-[state=active]:text-white dark:data-[state=active]:bg-gray-900 dark:data-[state=active]:text-white"
               >
                 {category}
               </TabsTrigger>
