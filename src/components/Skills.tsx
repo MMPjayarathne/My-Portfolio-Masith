@@ -1,51 +1,45 @@
-"use client"; 
+"use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
 
+type Skill = {
+  name: string;
+  image: string;
+};
+
+type Skills = {
+  Languages: Skill[];
+  "Frameworks & Libraries": Skill[];
+  Databases: Skill[];
+  "Tools & Services": Skill[];
+};
+
 export default function Skills() {
-      const skills = {
-        Languages: [
-          { name: "Java", image: "/stacks/languages/java.png" },
-          { name: "Python", image: "/stacks/languages/python.png" },
-          { name: "JavaScript", image: "/stacks/languages/javascript.png" },
-          { name: "C", image: "/stacks/languages/letter-c.png" },
-          { name: "PHP", image: "/stacks/languages/php.png" },
-          { name: "HTML", image: "/stacks/languages/html-5.png" },
-          { name: "SQL", image: "/stacks/languages/sql.png" },
-        ],
-        "Frameworks & Libraries": [
-          { name: "Spring Boot", image: "/stacks/frameworks/springboot.png" },
-          { name: "React", image: "/stacks/frameworks/react.png" },
-          { name: "Next.js", image: "/stacks/frameworks/next-js.png" },
-          { name: "Node.js", image: "/stacks/frameworks/node-js.png" },
-          { name: ".Net", image: "/stacks/frameworks/net.png" },
-          { name: "Scikit-learn", image: "/stacks/frameworks/scikit-learn.png" },
-        ],
-        Databases: [
-          { name: "MySQL", image: "/stacks/databases/mysql.png" },
-          { name: "PostgreSQL", image: "/stacks/databases/postgresql.png" },
-          { name: "MongoDB", image: "/stacks/databases/mongodb.png" },
-          { name: "Snowflake", image: "/stacks/databases/snowflake.png" },
-          { name: "DynamoDB", image: "/stacks/databases/dynamodb.png" },
-          { name: "SAP HANA", image: "/stacks/databases/sap.png" },
-          { name: "Firestore", image: "/stacks/databases/firestore.png" },
-        ],
-        "Tools & Services": [
-          { name: "GitHub", image: "/stacks/tools/github.png" },
-          { name: "Docker", image: "/stacks/tools/docker.png" },
-          { name: "AWS", image: "/stacks/tools/aws.png" },
-          { name: "Datadog", image: "/stacks/tools/datadog.svg" },
-          { name: "Bitbucket", image: "/stacks/tools/bitbucket.png" },
-          { name: "Figma", image: "/stacks/tools/figma.png" },
-          { name: "Jenkins", image: "/stacks/tools/jenkins.png" },
-          { name: "Jira", image: "/stacks/tools/jira.png" },
-          { name: "Kafka", image: "/stacks/tools/kafka.png" },
-          { name: "Power BI", image: "/stacks/tools/power-bi.png" },
-        ],
-      };
+  const [skills, setSkills] = useState<Skills | null>(null);
+
+  useEffect(() => {
+    const fetchSkills = async () => {
+      try {
+        const response = await fetch("/db/skills.json");
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data: Skills = await response.json();
+        setSkills(data);
+      } catch (error) {
+        console.error("Fetch error: ", error);
+      }
+    };
+
+    fetchSkills();
+  }, []);
+
+  if (!skills) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <section id="myskills" className="min-h-screen flex items-center justify-center bg-background py-16">
