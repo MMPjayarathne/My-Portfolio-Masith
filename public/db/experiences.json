@@ -1,0 +1,12 @@
+{
+  "experiences": [
+    {
+      "id": 1,
+      "title": "Software Engineer - Intern",
+      "subtitle": "Dec 2023 - Jul 2024",
+      "description": "<p><strong>As a Software Engineering Intern, I played a key role in enhancing the IDPS generic data distribution framework by integrating cloud-based solutions and improving system functionalities. My contributions include:</strong></p><ul class=\"list-disc pl-6\"><li><strong>Developed a data distribution framework</strong> using Spring Boot with Maven, integrated with Snowflake Data Warehouse, and deployed it in the AWS environment under the guidance of Software Architects.</li><li><strong>Introduced and deployed a Wiremock-based feature</strong> for endpoint mocking, integrated with AWS Lambda and API Gateway.</li><li><strong>Created and managed Datadog monitors</strong> to track API call latencies, setting up alerts to notify teams of performance issues, leading to faster response times.</li><li><strong>Collaborated with QA Analysts</strong> to fix bugs, contributing to system stability.</li><li><strong>Integrated various AWS services</strong>, including SQS, SNS, Cognito, EC2, Lambda, DynamoDB, and API Gateway, to enhance system capabilities and performance.</li><li><strong>Enhanced the API Catalog’s frontend (ReactJs, Swagger UI)</strong> and backend (Node.js) functionalities, including user-based API gateway restrictions.</li><li><strong>Actively participated in agile practices</strong>, including Sprints and code reviews, while maintaining comprehensive documentation.</li></ul><p>This experience provided me with valuable insights into full-stack development, cloud integration, and agile methodologies.</p>",
+      "companyName": "London Stocks Exchange Group (LSEG)",
+      "companyLogo": "/experience/lseg.png"
+    }
+  ]
+}

@@ -1,42 +1,47 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
-import { FaCalendarAlt } from "react-icons/fa"; 
+import { FaCalendarAlt } from "react-icons/fa";
 
-const experiences = [
-  {
-    id: 1,
-    title: "Software Engineer - Intern",
-    subtitle: "Dec 2023 - Jul 2024",
-    description: `
-      <p><strong>As a Software Engineering Intern, I played a key role in enhancing the IDPS generic data distribution framework by integrating cloud-based solutions and improving system functionalities. My contributions include:</strong></p>
-      <ul class="list-disc pl-6">
-        <li><strong>Developed a data distribution framework</strong> using Spring Boot with Maven, integrated with Snowflake Data Warehouse, and deployed it in the AWS environment under the guidance of Software Architects.</li>
-        <li><strong>Introduced and deployed a Wiremock-based feature</strong> for endpoint mocking, integrated with AWS Lambda and API Gateway.</li>
-        <li><strong>Created and managed Datadog monitors</strong> to track API call latencies, setting up alerts to notify teams of performance issues, leading to faster response times.</li>
-        <li><strong>Collaborated with QA Analysts</strong> to fix bugs, contributing to system stability.</li>
-        <li><strong>Integrated various AWS services</strong>, including SQS, SNS, Cognito, EC2, Lambda, DynamoDB, and API Gateway, to enhance system capabilities and performance.</li>
-        <li><strong>Enhanced the API Catalog’s frontend (ReactJs, Swagger UI)</strong> and backend (Node.js) functionalities, including user-based API gateway restrictions.</li>
-        <li><strong>Actively participated in agile practices</strong>, including Sprints and code reviews, while maintaining comprehensive documentation.</li>
-      </ul>
-      <p>This experience provided me with valuable insights into full-stack development, cloud integration, and agile methodologies.</p>
-    `,
-    companyName: "London Stocks Exchange Group (LSEG)", 
-    companyLogo: "/experience/lseg.png",
-  },
-];
+type Experience = {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  companyName: string;
+  companyLogo: string;
+};
 
 export default function Experience() {
   const [activeExperience, setActiveExperience] = useState<number>(0);
+  const [experiences, setExperiences] = useState<Experience[]>([]);
 
   const handleExperienceChange = (index: number) => {
     setActiveExperience(index);
   };
 
+  useEffect(() => {
+    const fetchExperiences = async () => {
+      try {
+        const response = await fetch("/db/experiences.json");
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        console.log("Fetched data:", data); // Log the response data
+        setExperiences(data.experiences);
+      } catch (error) {
+        console.error("Fetch error: ", error); // Log any fetch errors
+      }
+    };
+
+    fetchExperiences();
+  }, []);
+
   return (
     <section
-      id="experience"
+      id="industry"
       className="min-h-screen flex items-center justify-center bg-background py-16"
     >
       <div className="container mx-auto px-4 flex flex-col md:flex-row">
@@ -63,7 +68,7 @@ export default function Experience() {
                     <img
                       src={experience.companyLogo}
                       alt="Company Logo"
-                      className="h-full w-full object-contain"  // Fix zoom issue
+                      className="h-full w-full object-contain" // Fix zoom issue
                     />
                   </div>
 
@@ -78,12 +83,12 @@ export default function Experience() {
                       </div>
                     </div>
 
-                    <div className="mt-2 text-sm text-gray-600">
+                    <div className="mt-2 text-sm text-muted-foreground">
                       {experience.companyName}
                     </div>
 
                     <div
-                      className="mt-4 text-gray-700"
+                      className="mt-4 text-muted-foreground"
                       dangerouslySetInnerHTML={{
                         __html: experience.description,
                       }}
@@ -95,15 +100,17 @@ export default function Experience() {
           </div>
         </div>
 
-        <div className="hidden md:flex flex-1 justify-center items-center">
-          <div className="w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden">
-            <img
-              src={experiences[activeExperience].companyLogo}
-              alt="Selected Company Logo"
-              className="h-full w-full object-contain"
-            />
+        {experiences.length > 0 && (
+          <div className="hidden md:flex flex-1 justify-center items-center">
+            <div className="w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden">
+              <img
+                src={experiences[activeExperience].companyLogo}
+                alt="Selected Company Logo"
+                className="h-full w-full object-contain"
+              />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
