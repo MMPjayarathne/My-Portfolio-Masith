@@ -19,7 +19,7 @@ export default function Volunteer() {
   const [volunteerExperiences, setVolunteerExperiences] = useState<VolunteerExperiences[]>([]);
   
     useEffect(() => {
-      const fetchExperiences = async () => {
+      const fetchVolunteers = async () => {
         try {
           const response = await fetch("/db/volunteers.json");
           if (!response.ok) {
@@ -32,7 +32,7 @@ export default function Volunteer() {
         }
       };
   
-      fetchExperiences();
+      fetchVolunteers();
     }, []);
   const handleVolunteerExperienceChange = (index: number) => {
     setActiveVolunteerExperience(index);

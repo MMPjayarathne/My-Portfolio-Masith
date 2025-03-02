@@ -29,10 +29,9 @@ export default function Experience() {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
-        console.log("Fetched data:", data); // Log the response data
         setExperiences(data.experiences);
       } catch (error) {
-        console.error("Fetch error: ", error); // Log any fetch errors
+        console.error("Fetch error: ", error); 
       }
     };
 
