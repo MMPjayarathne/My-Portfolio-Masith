@@ -1,24 +1,24 @@
-"use client"; 
+"use client";
 
 import React from "react";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
+import { FaGraduationCap, FaStar, FaClipboard, FaProjectDiagram } from "react-icons/fa";
 import myImg from "../../public/images/research.png";
 
 export default function Education() {
   return (
     <section id="eduction" className="min-h-screen flex items-center justify-center bg-background py-16">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
-       
         <div className="flex-1 flex justify-center md:justify-start">
-          <div className="relative w-full max-w-md">
+          <div className="relative w-full max-w-md md:block hidden">
             <Image
               src={myImg}
               alt="Profile Picture"
               width={400}
               height={400}
-              className="rounded-lg "
-              priority 
+              className="rounded-lg"
+              priority
             />
           </div>
         </div>
@@ -28,57 +28,66 @@ export default function Education() {
             Education
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-8">
-            My academic journey has equipped me with a strong foundation in Software Engineering principles, which I continually apply to real-world scenarios through internships and personal projects. I&apos;m excited to connect with like-minded individuals and explore opportunities to make a positive impact on the world through technology. Thank you for visiting my portfolio!
+            My academic journey has equipped me with a strong foundation in Software Engineering, which I continually apply to real-world scenarios through projects. I&apos;m excited to connect with like-minded individuals and explore opportunities to make a positive impact on the world through technology.
           </p>
 
           <Card className="p-6 shadow-lg">
-            <h2 className="text-2xl font-semibold text-primary mb-4">
-              Education
-            </h2>
-            <ul className="space-y-4">
-              <li className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center">
-                  <span className="text-primary">1</span>
+            <h2 className="text-2xl font-semibold text-primary mb-4">Info</h2>
+            <ul className="space-y-6">
+              <li>
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 text-white flex items-center justify-center">
+                      <FaGraduationCap size={24} />
+                    </div>
+                    <h3 className="text-xl font-semibold text-primary">Degree</h3>
+                  </div>
                 </div>
-                <div>
-                  <strong className="text-primary">Degree</strong>
-                  <p className="text-muted-foreground">BSc(Hons) Software Engineering</p>
-                  <p className="text-muted-foreground">University of Kelaniya, Sri Lanka</p>
-                </div>
+                <ul className="text-muted-foreground mt-2 ml-16">
+                  <li>BSc(Hons) Software Engineering</li>
+                  <li>University of Kelaniya, Sri Lanka</li>
+                </ul>
               </li>
 
-              <li className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center">
-                  <span className="text-primary">2</span>
+
+              <li>
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-green-500 via-teal-500 to-blue-500 text-white flex items-center justify-center">
+                      <FaStar size={24} />
+                    </div>
+                    <h3 className="text-xl font-semibold text-primary">GPA</h3>
+                  </div>
                 </div>
-                <div>
-                  <strong className="text-primary">GPA</strong>
-                  <p className="text-muted-foreground">3.89/4</p>
-                </div>
+                <p className="text-muted-foreground mt-2 ml-16">3.89/4</p>
               </li>
 
-              <li className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center">
-                  <span className="text-primary">3</span>
+              <li>
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white flex items-center justify-center">
+                      <FaClipboard size={24} />
+                    </div>
+                    <h3 className="text-xl font-semibold text-primary">Class</h3>
+                  </div>
                 </div>
-                <div>
-                  <strong className="text-primary">Class</strong>
-                  <p className="text-muted-foreground">First Class Honors</p>
-                </div>
+                <p className="text-muted-foreground mt-2 ml-16">--------</p>
               </li>
 
-              <li className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center">
-                  <span className="text-primary">4</span>
+              <li>
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 text-white flex items-center justify-center">
+                      <FaProjectDiagram size={24} />
+                    </div>
+                    <h3 className="text-xl font-semibold text-primary">Specializations</h3>
+                  </div>
                 </div>
-                <div>
-                  <strong className="text-primary">Specializations</strong>
-                  <ul className="text-muted-foreground">
-                    <li>Data Science</li>
-                    <li>Net-Centric Applications</li>
-                    <li>Health Informatics</li>
-                  </ul>
-                </div>
+                <ul className="text-muted-foreground mt-2 ml-16">
+                  <li>Data Science</li>
+                  <li>Net-Centric Applications</li>
+                  <li>Health Informatics</li>
+                </ul>
               </li>
             </ul>
           </Card>
