@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaTwitter } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white py-8 mt-16">
+    <footer className="bg-primary dark:bg-gray-900 text-white py-8 mt-16">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
           <div className="mb-4 md:mb-0">
@@ -39,7 +39,7 @@ export default function Footer() {
 
           <div className="flex gap-4 justify-center md:justify-start">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/MMPjayarathne"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-white transition-colors"
@@ -48,7 +48,7 @@ export default function Footer() {
               <FaGithub size={24} />
             </a>
             <a
-              href="https://www.linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/masith-pramuditha-b4649b220/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-white transition-colors"
@@ -57,14 +57,14 @@ export default function Footer() {
               <FaLinkedin size={24} />
             </a>
             <a
-              href="mailto:youremail@example.com"
+              href="mailto:pramudithajayarathna@gmail.com"
               className="text-muted-foreground hover:text-white transition-colors"
               aria-label="Email"
             >
               <FaEnvelope size={24} />
             </a>
             <a
-              href="https://twitter.com/yourusername"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-white transition-colors"
@@ -75,7 +75,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-muted-foreground mt-8 pt-4 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Your Name. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} Masith Pramuditha. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
