@@ -127,7 +127,7 @@ export default function Navbar() {
           <Button variant="ghost" onClick={() => scrollToSection("eduction")} className="w-full text-left">
             Education
           </Button>
-          <div className="relative">
+          <div className="relative" ref={experienceRef}>
             <Button
               variant="ghost"
               onClick={() => setIsExperienceOpen(!isExperienceOpen)}
