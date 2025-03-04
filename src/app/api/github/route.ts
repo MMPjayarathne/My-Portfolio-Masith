@@ -31,7 +31,13 @@ export async function GET(request: Request) {
     if (!reposResponse.ok) {
       throw new Error("Failed to fetch GitHub repositories");
     }
-    const repos: GitHubRepo[] = await reposResponse.json();
+    const data: GitHubRepo[] = await reposResponse.json();
+    if (data.length === 0) {
+      return NextResponse.json({ error: "No repositories found for the MMPjayarathne" }, { status: 404 });
+    }
+
+    const repos = data.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+
 
     const reposWithImages = await Promise.all(
       repos.map(async (repo) => {
