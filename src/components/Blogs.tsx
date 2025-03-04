@@ -49,14 +49,14 @@ export default function Blog() {
             {blogs.map((post) => (
               <CarouselItem key={post.title} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-4">
-                  <Card className="shadow-lg rounded-lg">
+                  <Card className="shadow-lg rounded-lg pt-0">
                     <div className="relative">
                       <Image
                         src={post.image}
                         alt={post.title}
                         width={400}
                         height={250}
-                        className="w-full h-auto rounded-t-lg object-cover"
+                        className="w-full h-full rounded-t-lg object-cover"
                       />
                     </div>
                     <CardContent className="flex flex-col items-center p-4">
