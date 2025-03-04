@@ -64,7 +64,7 @@ export default function Experience() {
                   onClick={() => handleExperienceChange(index)}
                   className="flex p-6 cursor-pointer flex-col md:flex-row"
                 >
-                  <div className="w-16 h-16 md:w-24 md:h-24 mr-6 flex items-center justify-center rounded-full overflow-hidden mb-4 md:mb-0">
+                  <div className="md:w-24 md:h-24 mr-6 flex items-center justify-center rounded-full overflow-hidden mb-4 md:mb-0">
                     <Image
                       src={experience.companyLogo}
                       alt="Company Logo"
