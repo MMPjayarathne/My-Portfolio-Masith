@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { FaCalendarAlt } from "react-icons/fa";
 import Image from "next/image";
+import { useDarkMode } from "@/context/DarkModeContext";
 
 type VolunteerExperiences = {
   id: number;
@@ -12,29 +13,32 @@ type VolunteerExperiences = {
   description: string;
   organizationName: string;
   organizationLogo: string;
+  organizationLogoDark: string;
 };
 
 
 export default function Volunteer() {
   const [activeVolunteerExperience, setActiveVolunteerExperience] = useState<number>(0);
   const [volunteerExperiences, setVolunteerExperiences] = useState<VolunteerExperiences[]>([]);
-  
-    useEffect(() => {
-      const fetchVolunteers = async () => {
-        try {
-          const response = await fetch("/db/volunteers.json");
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          const data = await response.json();
-          setVolunteerExperiences(data.volunteers);
-        } catch (error) {
-          console.error("Fetch error: ", error); 
+  const { isDarkMode }= useDarkMode();
+
+  useEffect(() => {
+    const fetchVolunteers = async () => {
+      try {
+        const response = await fetch("/db/volunteers.json");
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
         }
-      };
-  
-      fetchVolunteers();
-    }, []);
+        const data = await response.json();
+        setVolunteerExperiences(data.volunteers);
+      } catch (error) {
+        console.error("Fetch error: ", error);
+      }
+    };
+
+    fetchVolunteers();
+  }, []);
+
   const handleVolunteerExperienceChange = (index: number) => {
     setActiveVolunteerExperience(index);
   };
@@ -46,20 +50,20 @@ export default function Volunteer() {
     >
       <div className="container mx-auto px-4 flex flex-col md:flex-row">
 
-      {volunteerExperiences.length > 0 && (
-        <div className="hidden md:flex flex-1 justify-center items-center">
-          <div className="w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden">
-            <Image
-              src={volunteerExperiences[activeVolunteerExperience].organizationLogo}
-              alt="Selected Organization Logo"
-              className="h-full w-full object-contain"
-              priority
-              width={400}
-              height={400}
-            />
+        {volunteerExperiences.length > 0 && (
+          <div className="hidden md:flex flex-1 justify-center items-center">
+            <div className="w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden">
+              <Image
+                src={isDarkMode ? volunteerExperiences[activeVolunteerExperience].organizationLogoDark : volunteerExperiences[activeVolunteerExperience].organizationLogo}
+                alt="Selected Organization Logo"
+                className="h-full w-full object-contain"
+                priority
+                width={400}
+                height={400}
+              />
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
         <div className="flex-1 md:max-w-2xl">
           <h1 className="text-4xl md:text-5xl font-bold text-primary mb-8 border-b-4 border-secondary pb-2">
@@ -70,20 +74,19 @@ export default function Volunteer() {
             {volunteerExperiences.map((experience, index) => (
               <Card
                 key={experience.id}
-                className={`transition-transform duration-500 ease-in-out ${
-                  index === activeVolunteerExperience
+                className={`transition-transform duration-500 ease-in-out ${index === activeVolunteerExperience
                     ? "scale-100 opacity-100 z-10"
                     : "scale-90 opacity-50 z-0"
-                }`}
+                  }`}
               >
                 <div
                   onClick={() => handleVolunteerExperienceChange(index)}
-                  className="flex p-6 cursor-pointer flex-col md:flex-row" 
+                  className="flex p-6 cursor-pointer flex-col md:flex-row"
                 >
 
                   <div className="md:w-24 md:h-24 mr-6 flex items-center justify-center rounded-full overflow-hidden mb-4 md:mb-0">
                     <Image
-                      src={experience.organizationLogo}
+                      src={isDarkMode? experience.organizationLogoDark : experience.organizationLogo}
                       alt="Organization Logo"
                       className="h-full w-full object-contain"
                       priority
