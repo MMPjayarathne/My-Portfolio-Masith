@@ -12,68 +12,47 @@ import {
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
-// Sample blog data
-const blogPosts = [
-  {
-    id: 1,
-    title: "How to Build a React App",
-    description: "A beginner's guide to building a simple React application.",
-    link: "#",
-    imageUrl: "/images/blog1.jpg",
-  },
-  {
-    id: 2,
-    title: "Understanding JavaScript Closures",
-    description: "A deep dive into closures and how they work in JavaScript.",
-    link: "#",
-    imageUrl: "/images/blog2.jpg",
-  },
-  {
-    id: 3,
-    title: "Introduction to CSS Grid",
-    description: "Learn the basics of CSS Grid layout and create complex designs.",
-    link: "#",
-    imageUrl: "/images/blog3.jpg",
-  },
-  {
-    id: 4,
-    title: "Mastering Node.js and Express",
-    description: "Build scalable server-side applications with Node.js and Express.",
-    link: "#",
-    imageUrl: "/images/blog4.jpg",
-  },
-  {
-    id: 5,
-    title: "React vs Vue: A Detailed Comparison",
-    description: "A comparison between React and Vue for front-end development.",
-    link: "#",
-    imageUrl: "/images/blog5.jpg",
-  },
-  {
-    id: 6,
-    title: "The Ultimate Guide to TypeScript",
-    description: "Get started with TypeScript and understand its core features.",
-    link: "#",
-    imageUrl: "/images/blog6.jpg",
-  },
-];
+interface Article {
+  title: string;
+  description: string;
+  image: string;
+  pubDate: string;
+  link: string;
+}
 
 export default function Blog() {
+  const [blogs, setBlogs] = React.useState<Article[]>([])
+
+  React.useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await fetch("/api/medium");
+        if (!response.ok) {
+          throw new Error("Failed to fetch blog articles");
+        }
+        const data: Article[] = await response.json();
+        setBlogs(data);
+      } catch (error) {
+        console.error("Fetch error: ", error);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
   return (
     <section id="blogs" className="py-16 bg-background">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl font-bold text-primary mb-8">Latest Blog Articles</h2>
 
-        {/* Blog Carousel */}
         <Carousel opts={{ align: "start" }} className="w-full max-w-4xl mx-auto">
           <CarouselContent>
-            {blogPosts.map((post) => (
-              <CarouselItem key={post.id} className="md:basis-1/2 lg:basis-1/3">
+            {blogs.map((post) => (
+              <CarouselItem key={post.title} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-4">
                   <Card className="shadow-lg rounded-lg">
                     <div className="relative">
                       <Image
-                        src={post.imageUrl}
+                        src={post.image}
                         alt={post.title}
                         width={400}
                         height={250}
@@ -82,8 +61,10 @@ export default function Blog() {
                     </div>
                     <CardContent className="flex flex-col items-center p-4">
                       <h3 className="text-xl font-semibold text-primary mb-2">{post.title}</h3>
-                      <p className="text-sm text-muted-foreground mb-4">{post.description}</p>
-                      <Button variant="outline" onClick={() => window.location.href = post.link}>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        {new Date(post.pubDate).toLocaleDateString()}
+                      </p>
+                      <Button variant="outline" onClick={() => window.open(post.link, '_blank')}>
                         Read More
                       </Button>
                     </CardContent>
