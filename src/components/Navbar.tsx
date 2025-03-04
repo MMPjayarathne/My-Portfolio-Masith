@@ -164,7 +164,7 @@ export default function Navbar() {
         <div className="flex flex-col space-y-2 p-4">
           <Button
             variant="ghost"
-            onClick={() => scrollToSection("main")}
+            onClick={() => scrollToSection("intro")}
             className="w-full text-left"
           >
             Home
