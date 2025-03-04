@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaTwitter } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary bottom-0 left-0 right-0 dark:bg-gray-900 text-white py-8 mt-16 -mx-4 md:-mx-8 lg:-mx-12">
+    <footer className="bg-primary bottom-0 left-0 right-0 pl-[2rem] pr-[2rem] dark:bg-gray-900 text-white py-8  md:-mx-8 lg:-mx-12">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
           <div className="mb-4 md:mb-0">
