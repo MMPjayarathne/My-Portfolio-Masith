@@ -31,7 +31,8 @@ export default function Projects() {
           throw new Error("Failed to fetch projects");
         }
         const data: GitHubRepo[] = await response.json();
-        setProjects(data);
+        const filteredRepos = data.filter((repo) => repo.name !== "MMPjayarathne");
+        setProjects(filteredRepos);
       } catch (error) {
         if (error instanceof Error) {
           setError(error.message);
