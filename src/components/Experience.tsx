@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { FaCalendarAlt } from "react-icons/fa";
+import Image from "next/image";
 
 type Experience = {
   id: number;
@@ -64,10 +65,12 @@ export default function Experience() {
                   className="flex p-6 cursor-pointer flex-col md:flex-row"
                 >
                   <div className="w-16 h-16 md:w-24 md:h-24 mr-6 flex items-center justify-center rounded-full overflow-hidden mb-4 md:mb-0">
-                    <img
+                    <Image
                       src={experience.companyLogo}
                       alt="Company Logo"
-                      className="h-full w-full object-contain" // Fix zoom issue
+                      className="h-full w-full object-contain" 
+                      width={400}
+                      height={400}
                     />
                   </div>
 
@@ -102,10 +105,12 @@ export default function Experience() {
         {experiences.length > 0 && (
           <div className="hidden md:flex flex-1 justify-center items-center">
             <div className="w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden">
-              <img
+              <Image
                 src={experiences[activeExperience].companyLogo}
                 alt="Selected Company Logo"
                 className="h-full w-full object-contain"
+                width={400}
+                height={400}
               />
             </div>
           </div>

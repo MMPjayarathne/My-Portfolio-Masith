@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { FaCalendarAlt } from "react-icons/fa";
+import Image from "next/image";
 
 type VolunteerExperiences = {
   id: number;
@@ -48,10 +49,13 @@ export default function Volunteer() {
       {volunteerExperiences.length > 0 && (
         <div className="hidden md:flex flex-1 justify-center items-center">
           <div className="w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden">
-            <img
+            <Image
               src={volunteerExperiences[activeVolunteerExperience].organizationLogo}
               alt="Selected Organization Logo"
               className="h-full w-full object-contain"
+              priority
+              width={400}
+              height={400}
             />
           </div>
         </div>
@@ -78,10 +82,13 @@ export default function Volunteer() {
                 >
 
                   <div className="w-16 h-16 md:w-24 md:h-24 mr-6 flex items-center justify-center rounded-full overflow-hidden mb-4 md:mb-0">
-                    <img
+                    <Image
                       src={experience.organizationLogo}
                       alt="Organization Logo"
                       className="h-full w-full object-contain"
+                      priority
+                      width={400}
+                      height={400}
                     />
                   </div>
 
