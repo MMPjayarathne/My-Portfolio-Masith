@@ -62,7 +62,7 @@ export default function Skills() {
           </TabsList>
 
           {Object.entries(skills).map(([category, items]) => (
-            <TabsContent key={category} value={category} className="mt-8">
+            <TabsContent key={category} value={category} className="mt-8 pt-2 md:pt-0">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {items.map((skill) => (
                   <Card key={skill.name} className="p-4 flex flex-col items-center hover:shadow-lg transition-shadow">
