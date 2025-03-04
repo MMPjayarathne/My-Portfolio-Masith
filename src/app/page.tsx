@@ -8,10 +8,12 @@ import  Blogs from "@/components/Blogs";
 import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
 import Volunteer from "@/components/Volunteer";
+import { DarkModeProvider } from "@/context/DarkModeContext";
 
 export default function Home() {
   return (
     <div>
+      <DarkModeProvider>
       <Navbar/>
       <Intro/>
       <AboutMe/>
@@ -22,6 +24,7 @@ export default function Home() {
       <ContactMe/>
       <Blogs/>
       <Footer/>
+      </DarkModeProvider>
 
     </div>
   );

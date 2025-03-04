@@ -1,34 +1,16 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useDarkMode } from "@/context/DarkModeContext";
+
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isExperienceOpen, setIsExperienceOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  // Toggle dark mode based on class on the <html> element
-  useEffect(() => {
-    const savedMode = localStorage.getItem("darkMode");
-    if (savedMode === "true") {
-      document.documentElement.classList.add("dark");
-      setIsDarkMode(true);
-    } else {
-      document.documentElement.classList.remove("dark");
-      setIsDarkMode(false);
-    }
-  }, []);
-
-  // Toggle dark mode on and off
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    const newMode = !isDarkMode;
-    document.documentElement.classList.toggle("dark", newMode);
-    localStorage.setItem("darkMode", newMode.toString());
-  };
+  const { isDarkMode, toggleDarkMode }  = useDarkMode();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
