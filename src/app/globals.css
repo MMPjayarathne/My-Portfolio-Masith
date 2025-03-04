@@ -127,3 +127,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+@media (min-width: 1024px) {
+  body {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
