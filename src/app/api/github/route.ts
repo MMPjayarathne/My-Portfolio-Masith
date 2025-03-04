@@ -25,7 +25,7 @@ export async function GET(request: Request) {
   try {
     const reposResponse = await fetch(`https://api.github.com/users/${username}/repos`, {
       headers: {
-        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`, // Use the token
+        Authorization: `Bearer ${process.env.GIT_TOKEN}`, // Use the token
       },
     });
     if (!reposResponse.ok) {
@@ -41,7 +41,7 @@ export async function GET(request: Request) {
             {
               headers: {
                 Accept: "application/vnd.github.v3.raw",
-                Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+                Authorization: `Bearer ${process.env.GIT_TOKEN}`,
               },
             }
           );
