@@ -43,9 +43,16 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 pl-[2rem] pr-[2rem] z-50 bg-white dark:bg-gray-900 shadow-md">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <div className="flex items-center">
-          <span className="text-3xl font-bold text-primary font-[Moon_Dance]">Masith</span>
-        </div>
+      <div className="flex items-center">
+        <span className="text-3xl font-bold text-primary font-[Moon_Dance]">
+          <button 
+            onClick={() => scrollToSection("intro")} 
+            className="focus:outline-none bg-transparent p-0" 
+          >
+            Masith
+          </button>
+        </span>
+      </div>
 
 
 
