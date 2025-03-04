@@ -41,11 +41,13 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 shadow-md">
+    <nav className="fixed top-0 left-0 right-0 pl-[2rem] pr-[2rem] z-50 bg-white dark:bg-gray-900 shadow-md">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <div className="flex items-center">
-          <span className="text-3xl font-bold text-primary font-cursive">Masith</span>
+          <span className="text-3xl font-bold text-primary font-[Moon_Dance]">Masith</span>
         </div>
+
+
 
         <div className="hidden md:flex space-x-6">
           <Button variant="ghost" onClick={() => scrollToSection("intro")} className="text-lg hover:bg-accent">
