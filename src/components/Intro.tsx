@@ -8,6 +8,13 @@ import myImage from "../../public/images/myimg-removebg.png";
 import { motion } from "framer-motion"; 
 
 export default function Intro() {
+
+  const downloadPDF = (url: string, filename: string): void => {
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    link.click(); 
+  };
   return (
     <section id="intro" className="min-h-screen flex items-center justify-center bg-background">
       <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row items-center gap-8 relative">
@@ -33,8 +40,7 @@ export default function Intro() {
             <Button
               className="gap-2 px-6 py-3 text-lg font-semibold"
               onClick={() => {
-                // Add download functionality here
-                console.log("Download CV clicked");
+                downloadPDF('/cv/CV-Masith_Pramuditha.pdf', 'CV-Masith_Pramuditha.pdf')
               }}
             >
               <Download className="w-5 h-5" />
