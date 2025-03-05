@@ -1,6 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 My Portfolio
 
-## Getting Started
+Welcome to my portfolio! Built with **Next.js, TypeScript, and Tailwind CSS**, this website dynamically showcases my projects and tech articles.
+
+![Screenshot_5-3-2025_165512_portfolio-masith vercel app](https://github.com/user-attachments/assets/965c276b-60ca-451a-8320-6fc2c4901a83)
+
+
+## 🔥 Features
+
+- **GitHub Repositories** – Fetches and displays my latest projects with images from README files.
+- **Medium Articles** – Loads my latest tech articles using RSS feed parsing.
+- **Dark Mode Support** – Sleek UI with light and dark mode.
+- **Deployed on Vercel** – Automated CI/CD with GitHub Actions for a smooth deployment process.
+
+## 🛠️ Tech Stack
+
+- **Frontend:** Next.js, TypeScript, Tailwind CSS
+- **Backend:** Next.js API routes
+- **Deployment:** Vercel (CI/CD with GitHub Actions)
+
+## 🚀 Getting Started
 
 First, run the development server:
 
