@@ -110,7 +110,7 @@ export default function ContactMe() {
               <div>
                 <label className="block text-sm font-medium text-muted-foreground mb-2">Message</label>
                 <Textarea
-                  placeholder="What would you like to tell us.."
+                  placeholder="What would you like to tell me.."
                   {...register("message", { required: "Message is required" })}
                 />
                 {errors.message && (
