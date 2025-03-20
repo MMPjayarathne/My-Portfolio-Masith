@@ -38,7 +38,7 @@ export default function Navbar() {
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, []);
+  }, [isExperienceOpen]);
 
   return (
     <nav className="fixed top-0 left-0 right-0 pl-[2rem] pr-[2rem] z-50 bg-white dark:bg-gray-900 shadow-md">
