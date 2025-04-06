@@ -4,7 +4,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 import Image from "next/image";
-import myImage from "../../public/images/myimg-removebg.png";
+import myImage from "../../public/images/profile-new.png";
 import { motion } from "framer-motion"; 
 
 export default function Intro() {
