@@ -2,11 +2,20 @@
   "experiences": [
     {
       "id": 1,
+      "title": "Software Engineer - Integration",
+      "subtitle": "Jul 2025 - Present",
+      "description": "<p><strong>As a Software Engineer – Integration, I focus on designing and delivering scalable integration solutions using Boomi and IFS platforms. My responsibilities and contributions include:</strong></p><ul class=\"list-disc pl-6\"><li><strong>Designed and implemented integration workflows</strong> on <strong>Boomi</strong> to connect IFS Thor, IFS Cloud, and third-party systems, ensuring seamless data synchronization and process automation.</li><li><strong>Developed and customized Groovy scripts</strong> within Boomi processes to handle complex data transformations, validations, and business logic.</li><li><strong>Worked on integration architectures</strong>, providing input on patterns, best practices, and scalable approaches to enterprise data exchange.</li><li><strong>Optimized system performance</strong> by monitoring, troubleshooting, and enhancing existing integrations for reliability and efficiency.</li><li><strong>Collaborated with cross-functional teams</strong> including architects, business analysts, and QA engineers to gather requirements, refine solutions, and deliver high-quality integrations.</li><li><strong>Followed Agile methodologies</strong> with active participation in sprint planning, daily stand-ups, reviews, retrospectives, and code reviews to ensure continuous improvement and timely delivery.</li></ul><p>This role has strengthened my expertise in <strong>integration platforms, enterprise application connectivity, and cloud-based solution delivery</strong> while deepening my understanding of Agile team collaboration.</p>",
+      "companyName": "IFS",
+      "companyLogo": "/experience/IFS.svg"
+    },
+    {
+      "id": 2,
       "title": "Software Engineer - Intern",
       "subtitle": "Dec 2023 - Jul 2024",
       "description": "<p><strong>As a Software Engineering Intern, I played a key role in enhancing the IDPS generic data distribution framework by integrating cloud-based solutions and improving system functionalities. My contributions include:</strong></p><ul class=\"list-disc pl-6\"><li><strong>Developed a data distribution framework</strong> using Spring Boot with Maven, integrated with Snowflake Data Warehouse, and deployed it in the AWS environment under the guidance of Software Architects.</li><li><strong>Introduced and deployed a Wiremock-based feature</strong> for endpoint mocking, integrated with AWS Lambda and API Gateway.</li><li><strong>Created and managed Datadog monitors</strong> to track API call latencies, setting up alerts to notify teams of performance issues, leading to faster response times.</li><li><strong>Collaborated with QA Analysts</strong> to fix bugs, contributing to system stability.</li><li><strong>Integrated various AWS services</strong>, including SQS, SNS, Cognito, EC2, Lambda, DynamoDB, and API Gateway, to enhance system capabilities and performance.</li><li><strong>Enhanced the API Catalog’s frontend (ReactJs, Swagger UI)</strong> and backend (Node.js) functionalities, including user-based API gateway restrictions.</li><li><strong>Actively participated in agile practices</strong>, including Sprints and code reviews, while maintaining comprehensive documentation.</li></ul><p>This experience provided me with valuable insights into full-stack development, cloud integration, and agile methodologies.</p>",
       "companyName": "London Stocks Exchange Group (LSEG)",
       "companyLogo": "/experience/lseg.png"
     }
+    
   ]
 }

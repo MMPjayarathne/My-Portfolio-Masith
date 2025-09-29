@@ -71,7 +71,7 @@ export default function Education() {
                     <h3 className="text-xl font-semibold text-primary">Class</h3>
                   </div>
                 </div>
-                <p className="text-muted-foreground mt-2 ml-16">--------</p>
+                <p className="text-muted-foreground mt-2 ml-16">First Class</p>
               </li>
 
               <li>

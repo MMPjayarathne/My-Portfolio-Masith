@@ -26,6 +26,8 @@
       { "name": "Firestore", "image": "/stacks/databases/firestore.png" }
     ],
     "Tools & Services": [
+      { "name": "Power Automate", "image": "/stacks/tools/microsoft-power-automate.svg" },
+      { "name": "Boomi", "image": "/stacks/tools/boomi.svg" },
       { "name": "GitHub", "image": "/stacks/tools/github.png" },
       { "name": "Docker", "image": "/stacks/tools/docker.png" },
       { "name": "AWS", "image": "/stacks/tools/aws.png" },
