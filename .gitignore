@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# visitor counter (live data — do not overwrite on deploy)
+/data/visitors.json

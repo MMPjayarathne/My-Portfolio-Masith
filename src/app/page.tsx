@@ -8,6 +8,7 @@ import  Blogs from "@/components/Blogs";
 import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
 import Volunteer from "@/components/Volunteer";
+import VisitorBadge from "@/components/VisitorBadge";
 import { DarkModeProvider } from "@/context/DarkModeContext";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
     <div>
       <DarkModeProvider>
       <Navbar/>
+      <VisitorBadge/>
       <Intro/>
       <AboutMe/>
       <Experience/>
